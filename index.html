@@ -5,28 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-   
 </head>
+
 <body>
-	<div class="container">
-	<div class="alert alert-primary w-50" role="alert">
-		<h1 class="text-center">List of ID</h1>
-	</div>
-		<div id="result"></div>
-		<script type="text/javascript">
-	    let div = document.createElement("div")
-	    fetch("http://localhost:3000/events")
-	    .then(resp => resp.json())
-	    .then(resp => {
-	       resp.map(e => {
-	        let html = document.createElement("li")
-	        html.classList.add("alert", "alert-danger","text-center", "w-50")
-	        html.innerHTML = e._id["$oid"]
-	        div.appendChild(html)
-	       })
-	       document.getElementById('result').innerHTML = div.innerHTML;
-	     })
-	   	</script>
-		</div>
-	</body>
+    <div class="container">
+        <div class="alert alert-primary w-50" role="alert">
+            <h1 class="text-center">List of ID</h1>
+        </div>
+        <div id="result"></div>
+        <script type="text/javascript">
+        let div = document.createElement("div")
+        fetch("http://localhost:3000/events")
+            .then(resp => resp.json())
+            .then(resp => {
+                resp.map(e => {
+                    let html = document.createElement("ul")
+                    html.classList.add("alert", "alert-danger", "text-center", "w-50")
+                    html.innerHTML = e._id["$oid"]
+                    div.appendChild(html)
+                })
+                document.getElementById('result').innerHTML = div.innerHTML;
+            })
+        </script>
+    </div>
+</body>
+
 </html>
