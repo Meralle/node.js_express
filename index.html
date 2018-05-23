@@ -15,7 +15,7 @@
         <div id="result"></div>
         <script type="text/javascript">
         let div = document.createElement("div")
-        fetch("http://localhost:3000/events")
+        fetch("http://localhost:3000/api/events")
             .then(resp => resp.json())
             .then(resp => {
                 resp.map(e => {
